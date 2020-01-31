@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/least-squares-approximate/static/css/main.d1b05096.chunk.css",
+    "main.js": "/least-squares-approximate/static/js/main.b8c70363.chunk.js",
+    "main.js.map": "/least-squares-approximate/static/js/main.b8c70363.chunk.js.map",
+    "runtime-main.js": "/least-squares-approximate/static/js/runtime-main.22d2b7db.js",
+    "runtime-main.js.map": "/least-squares-approximate/static/js/runtime-main.22d2b7db.js.map",
+    "static/js/2.f446b253.chunk.js": "/least-squares-approximate/static/js/2.f446b253.chunk.js",
+    "static/js/2.f446b253.chunk.js.map": "/least-squares-approximate/static/js/2.f446b253.chunk.js.map",
+    "index.html": "/least-squares-approximate/index.html",
+    "precache-manifest.1b2158598f1e8b82c9494168117c9b5c.js": "/least-squares-approximate/precache-manifest.1b2158598f1e8b82c9494168117c9b5c.js",
+    "service-worker.js": "/least-squares-approximate/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/least-squares-approximate/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.f446b253.chunk.js.LICENSE.txt": "/least-squares-approximate/static/js/2.f446b253.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/least-squares-approximate/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.22d2b7db.js",
+    "static/js/2.f446b253.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.b8c70363.chunk.js"
+  ]
+}
