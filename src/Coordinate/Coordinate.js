@@ -1,6 +1,6 @@
 class Coordinate {
 	constructor(x, y) {
-		this.x = parseFloat(x);
+		this.x = parseFloat(x); // maybe not as a float? 
 		this.y = parseFloat(y);  
 	}
 
@@ -9,7 +9,7 @@ class Coordinate {
 	}
 
 	equals(coord) {
-		return coord.x === this.x && coord.y === this.y; 
+		return coord.x && coord.x === this.x && coord.y && coord.y === this.y; 
 	}
 }
 

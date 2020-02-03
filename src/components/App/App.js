@@ -1,34 +1,22 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import './App.css';
-import Menu from '../Menu'
+import Menu from '../Menu';
+import Calculator from '../Calculator';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			degree: '',
+			degree: '1',
 			coords: []
 		};
 		this.handleChangeDegree = this.handleChangeDegree.bind(this);
 		this.handleAddCoord = this.handleAddCoord.bind(this);
 	}
-
-  // componentDidMount() {
-  //   const script = document.createElement("script");
-  //   script.src = "https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6";
-  //   script.async = true; 
-  //   script.onload = () => {
-  //     console.log("Loaded")
-  //     const div = document.getElementById('calculator');
-  //     const calc = window.Desmos.GraphingCalculator(div);
-  //     console.log(calc)
-  //     calc.setExpression({ id: 'graph1', latex: 'y=x^2' });
-  //   }
-  //   document.body.appendChild(script)
-
-
-  // }
-
 	handleChangeDegree(event) {
 		const value = event.target.value; 
 		if (value === "") {
@@ -39,7 +27,6 @@ class App extends React.Component {
 	}
 
 	handleAddCoord(newCoord) {
-		console.log(newCoord.toString());
 		const coords = this.state.coords;
 		this.setState({
 			coords: coords.concat([newCoord])
@@ -48,18 +35,28 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Menu 
-					expression={{
-						value: this.state.degree,
-						onChange: this.handleChangeDegree,
-					}}
-					coordinates={{
-						coords: this.state.coords,
-						addCoord: this.handleAddCoord,
-					}}
-				/>
-			</div>
+			<Container fluid='true'>
+				<Row>
+					<Col xs={12} lg={3}>
+						<Menu 
+							expression={{
+								value: this.state.degree,
+								onChange: this.handleChangeDegree,
+							}}
+							coordinates={{
+								coords: this.state.coords,
+								addCoord: this.handleAddCoord,
+							}}
+						/>
+					</Col>
+					<Col>
+						<Calculator
+							degree={this.state.degree || 0}
+							coords={this.state.coords}
+						/>
+					</Col>
+				</Row>
+			</Container>
 		);
 	} 
 }

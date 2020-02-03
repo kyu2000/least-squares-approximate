@@ -12,14 +12,13 @@ class CoordinateMenu extends React.Component {
 		this.handleChangeCoord = this.handleChangeCoord.bind(this);
 	}
 
+	// todo: fractions
 	isNewCoord(x, y) {
-		// Check x, y are numbers
-		const isNumber = (val) => !/^\s*$/.test(val) && isFinite(val);
+		// Check x, y are numbers 
+		const isNumber = (val) => !/^\s*$/.test(val) && isFinite(val); 
 		if (isNumber(x) && isNumber(y)) {
-			const coord = new Coordinate(x, y); 
-			const coords = this.props.coords; 
-			
-			if (!coords.reduce((acc, cur) => acc || cur.equals(coord), false)) {
+			const coord = new Coordinate(x, y); 			
+			if (this.props.coords.every(c => !coord.equals(c))) {
 				return coord; 
 			}
 		}
