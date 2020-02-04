@@ -6,46 +6,51 @@ import Col from 'react-bootstrap/Col';
 import './App.css';
 import Menu from '../Menu';
 import Calculator from '../Calculator';
+import Coordinate from '../../Coordinate';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			degree: '1',
+			degree: 1,
 			coords: []
 		};
 		this.handleChangeDegree = this.handleChangeDegree.bind(this);
 		this.handleAddCoord = this.handleAddCoord.bind(this);
 	}
-	handleChangeDegree(event) {
-		const value = event.target.value; 
-		if (value === "") {
-			this.setState({degree: ""});
-		} else if (isInt(value)) {
-			this.setState({degree: parseInt(value)});
-		}
+
+	handleChangeDegree(value) {
+		this.setState({degree: value});
 	}
 
-	handleAddCoord(newCoord) {
+	handleAddCoord(x, y) {
+		const newCoord = new Coordinate(x, y);
 		const coords = this.state.coords;
 		this.setState({
 			coords: coords.concat([newCoord])
 		})
 	}
 
+	calcMaxDegree() {
+		const map = new Map(); 
+		this.state.coords.forEach(coord => map.set(coord.x, 0)); // 0 is just random value
+		return map.size - 1;
+	}
+
 	render() {
 		return (
-			<Container fluid='true'>
-				<Row>
+			<Container fluid='true' style={{padding: 0}}>
+				<Row noGutters='true'>
 					<Col xs={12} lg={3}>
 						<Menu 
-							expression={{
+							degree={{
 								value: this.state.degree,
 								onChange: this.handleChangeDegree,
+								maxDegree: this.calcMaxDegree(),
 							}}
 							coordinates={{
 								coords: this.state.coords,
-								addCoord: this.handleAddCoord,
+								addCoord: this.handleAddCoord
 							}}
 						/>
 					</Col>
@@ -61,10 +66,6 @@ class App extends React.Component {
 	} 
 }
 
-function isInt(value) {
-	if (isNaN(value)) return false; 
-	const x = parseFloat(value);
-	return (x | 0) === x; 
-}
+
 
 export default App;

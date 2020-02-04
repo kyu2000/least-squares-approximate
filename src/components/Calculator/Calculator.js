@@ -1,5 +1,4 @@
 import React from 'react';
-import Spinner from 'react-bootstrap/Spinner';
 
 import './Calculator.css';
 
@@ -37,15 +36,18 @@ class Calculator extends React.Component {
 			graph.setBlank();
 			this.initCoords();
 			const result = calcLeastSquares(this.props.coords, this.props.degree)
-			if (result) graph.setExpression({
-				id: 'leastSquares',
-				latex: result
-			})
+			if (result) {
+				graph.setExpression({
+					id: 'leastSquares',
+					latex: result,
+					color: '#c74440'
+				});
+			}
 		}
 
 		return (
 			<div id="calc">
-			
+
 			</div>
 		);
 	}

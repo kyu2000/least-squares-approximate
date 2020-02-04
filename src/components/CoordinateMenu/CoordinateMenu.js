@@ -1,7 +1,10 @@
 import React from 'react';
-import Field from '../Field';
-import Coordinate from '../../Coordinate';
+import ListGroup from 'react-bootstrap/ListGroup';
 
+import './CoordinateMenu.css';
+
+import CoordinateAdder from '../CoordinateAdder';
+import Coordinate from '../../Coordinate';
 
 class CoordinateMenu extends React.Component {
 	constructor(props) {
@@ -10,6 +13,7 @@ class CoordinateMenu extends React.Component {
 			newCoordVal: ""
 		};
 		this.handleChangeCoord = this.handleChangeCoord.bind(this);
+		this.isUniqueCoord = this.isUniqueCoord.bind(this);
 	}
 
 	// todo: fractions
@@ -25,6 +29,11 @@ class CoordinateMenu extends React.Component {
 		return false;
 	}
 
+	isUniqueCoord(x, y) {
+		const coord = new Coordinate(x, y);
+		return this.props.coords.every(c => !coord.equals(c));
+	}
+	
 	handleChangeCoord(event) {
 		const value = event.target.value; 
 		const re = /^\((.*),(.*)\)$/;
@@ -46,22 +55,22 @@ class CoordinateMenu extends React.Component {
 	render() {
 		const coords = this.props.coords; 
 		const listCoords = coords.map((coord) => 
-			<li key={coord.toString()}>
+			<ListGroup.Item key={coord.toString()}>
 				{coord.toString()}
-			</li>
+			</ListGroup.Item>
 		);
 
 		return (
-			<div>
-				<h3>add a coord</h3>
-					<Field
-						value={this.state.newCoordVal}
-						onChange={this.handleChangeCoord}
-					/>
+			<div id="coordinateMenu">
+				<CoordinateAdder
+					value=""
+					isUniqueCoord={this.isUniqueCoord}
+					addCoord={this.props.addCoord}
+				/>
 				<h3>coords list</h3>
-				<ul>
+				<ListGroup>
 					{listCoords}
-				</ul>
+				</ListGroup>
 
 			</div>
 		);
