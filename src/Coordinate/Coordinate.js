@@ -9,7 +9,7 @@ class Coordinate {
 	}
 
 	equals(coord) {
-		return coord.x && coord.x === this.x && coord.y && coord.y === this.y; 
+		return coord.hasOwnProperty('x') && coord.x === this.x && coord.hasOwnProperty('y') && coord.y === this.y; 
 	}
 }
 
