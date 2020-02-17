@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/least-squares-approximate/static/css/main.d1b05096.chunk.css",
-    "main.js": "/least-squares-approximate/static/js/main.b8c70363.chunk.js",
-    "main.js.map": "/least-squares-approximate/static/js/main.b8c70363.chunk.js.map",
+    "main.css": "/least-squares-approximate/static/css/main.dbcfe189.chunk.css",
+    "main.js": "/least-squares-approximate/static/js/main.2fee3c04.chunk.js",
+    "main.js.map": "/least-squares-approximate/static/js/main.2fee3c04.chunk.js.map",
     "runtime-main.js": "/least-squares-approximate/static/js/runtime-main.22d2b7db.js",
     "runtime-main.js.map": "/least-squares-approximate/static/js/runtime-main.22d2b7db.js.map",
-    "static/js/2.f446b253.chunk.js": "/least-squares-approximate/static/js/2.f446b253.chunk.js",
-    "static/js/2.f446b253.chunk.js.map": "/least-squares-approximate/static/js/2.f446b253.chunk.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/least-squares-approximate/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.8c0a330f.chunk.js": "/least-squares-approximate/static/js/2.8c0a330f.chunk.js",
+    "static/js/2.8c0a330f.chunk.js.map": "/least-squares-approximate/static/js/2.8c0a330f.chunk.js.map",
     "index.html": "/least-squares-approximate/index.html",
-    "precache-manifest.1b2158598f1e8b82c9494168117c9b5c.js": "/least-squares-approximate/precache-manifest.1b2158598f1e8b82c9494168117c9b5c.js",
+    "precache-manifest.616f16aee3e0498b42bcd413d78c59cc.js": "/least-squares-approximate/precache-manifest.616f16aee3e0498b42bcd413d78c59cc.js",
     "service-worker.js": "/least-squares-approximate/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/least-squares-approximate/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.f446b253.chunk.js.LICENSE.txt": "/least-squares-approximate/static/js/2.f446b253.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/least-squares-approximate/static/media/logo.5d5d9eef.svg"
+    "static/css/2.47e06e2e.chunk.css.map": "/least-squares-approximate/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.dbcfe189.chunk.css.map": "/least-squares-approximate/static/css/main.dbcfe189.chunk.css.map",
+    "static/js/2.8c0a330f.chunk.js.LICENSE.txt": "/least-squares-approximate/static/js/2.8c0a330f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.22d2b7db.js",
-    "static/js/2.f446b253.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.b8c70363.chunk.js"
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.8c0a330f.chunk.js",
+    "static/css/main.dbcfe189.chunk.css",
+    "static/js/main.2fee3c04.chunk.js"
   ]
 }
