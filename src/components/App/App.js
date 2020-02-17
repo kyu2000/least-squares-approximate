@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 
 import './App.css';
 import Menu from '../Menu';
+// eslint-disable-next-line
 import Calculator from '../Calculator';
 import Coordinate from '../../Coordinate';
 

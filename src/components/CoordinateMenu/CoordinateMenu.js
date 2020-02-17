@@ -1,10 +1,11 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+
 import './CoordinateMenu.css';
 
-import CoordinateAdder from '../CoordinateAdder';
 import Coordinate from '../../Coordinate';
+import CoordinateAdder from '../CoordinateAdder';
 
 class CoordinateMenu extends React.Component {
 	constructor(props) {
