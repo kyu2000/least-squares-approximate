@@ -23,63 +23,16 @@ class CoordinateAdder extends React.Component {
 	handleKeyPress(event) {
 		if (event.key === 'Enter') {
 			event.preventDefault();
-			const status = this.checkCoord();
+			const status = this.props.checkCoord(this.state.coord);
 			if (status.isValid) {
 				this.props.addCoord(status.msg.x, status.msg.y);
-				console.log("test!!!");
 				this.setState({coord: ""});
 			}
 		}
 	}
 
-	// Check if value matches coordinate syntax
-	// Returns object {
-	// 	isValid: Boolean
-	//	isInvalid: Boolean     
-	//  msg: String (for additional info)
-	// }
-	// NB can't be both valid and invalid, but can be neither (when empty)	
-	checkCoord(value=this.state.coord) {
-		// Empty case 
-		if (value === "") {
-			return {
-				isValid: false,
-				isInvalid: false
-			};
-		}
-
-		const re = /^\((.*),(.*)\)$/;
-		const found = value.match(re);
-		if (found && found.length === 3) {
-			const [, x, y] = found; // x is 1st val, y is 2nd val in coord
-
-			// Check if x, y are numbers
-			const isNumber = (val) => !/^\s*$/.test(val) && isFinite(val); 
-			if (isNumber(x) && isNumber(y)) {
-				if (this.props.isUniqueCoord(x, y)) {
-					return {
-						isValid: true,
-						isInvalid: false, 
-						msg: {x: x, y: y}
-					}
-				} 
-				return {
-					isValid: false,
-					isInvalid: true,
-					msg: "Coordinate has already been entered"
-				}
-			}
-		}
-		return {
-			isValid: false,
-			isInvalid: true, 
-			msg: "Coordinate syntax is (x,y) where x and y are numbers"
-		}; 
-	}
-
-
 	render() {
-		const status = this.checkCoord();
+		const status = this.props.checkCoord(this.state.coord);
 		return (
 			<div id="coordinateAdder">
 				<Form id="formNewCoord" autoComplete="off">

@@ -1,4 +1,5 @@
 import React from 'react';
+import Alert from 'react-bootstrap/Alert';
 
 import './Calculator.css';
 
@@ -8,15 +9,22 @@ import calcLeastSquares from '../../math/worker';
 class Calculator extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			failedToLoad: false
+		}
 		this.graph = null;
 		
 		window.onload = () => {
 			console.log("window loaded");
 			const calc = document.getElementById('calc');
-			const graph = window.Desmos.GraphingCalculator(calc, {
-				expressionsCollapsed: true,
-			});
-			this.graph = graph; 
+			try {
+				const graph = window.Desmos.GraphingCalculator(calc, {
+					expressionsCollapsed: true,
+				});
+				this.graph = graph; 
+			} catch(err) {
+				this.setState({failedToLoad: true});
+			}
 		}
 	}
 
@@ -78,7 +86,11 @@ class Calculator extends React.Component {
 
 		return (
 			<div id="calc">
-
+				{this.state.failedToLoad && 
+					<Alert variant='danger'>
+						Could not load Desmos.
+					</Alert>
+				}
 			</div>
 		);
 	}

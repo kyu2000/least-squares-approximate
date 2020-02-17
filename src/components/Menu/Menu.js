@@ -17,7 +17,7 @@ class Menu extends React.Component {
 				<CoordinateMenu 
 					coords={this.props.coordinates.coords}
 					addCoord={this.props.coordinates.addCoord}
-					feedbackAdd={this.props.coordinates.feedbackAdd}
+					delCoord={this.props.coordinates.delCoord}
 				/>
 			</div>
 		);

@@ -23,9 +23,18 @@ class Degree extends React.Component {
 		}
 	}
 
+	// Prevent 'Enter' default
+	handleKeyPress(event) {
+		if (event.key === 'Enter') {
+			event.preventDefault(); 
+		}
+	}
+
 	// Valid degree for calculation purposes
 	validDegree(degree=this.state.degree) {
-		return isInt(degree) && degree <= this.props.maxDegree;
+		return isInt(degree) && 
+				degree >= 0 && 
+				degree <= this.props.maxDegree ;
 	}
 
 	render() {
@@ -39,6 +48,7 @@ class Degree extends React.Component {
 							placeholder="Degree"
 							value={this.state.degree}
 							onChange={this.handleChange}
+							onKeyPress={this.handleKeyPress}
 							isInvalid={!this.validDegree()}
 						/>
 						<Form.Control.Feedback type="invalid">

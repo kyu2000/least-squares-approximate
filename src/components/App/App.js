@@ -18,6 +18,7 @@ class App extends React.Component {
 		};
 		this.handleChangeDegree = this.handleChangeDegree.bind(this);
 		this.handleAddCoord = this.handleAddCoord.bind(this);
+		this.handleDelCoord = this.handleDelCoord.bind(this);
 	}
 
 	handleChangeDegree(value) {
@@ -29,6 +30,14 @@ class App extends React.Component {
 		const coords = this.state.coords;
 		this.setState({
 			coords: coords.concat([newCoord])
+		})
+	}
+
+	handleDelCoord(x, y) {
+		const tempCoord = new Coordinate(x, y);
+		const coords = this.state.coords.slice();
+		this.setState({
+			coords: coords.filter((coord) => !tempCoord.equals(coord))
 		})
 	}
 
@@ -51,7 +60,8 @@ class App extends React.Component {
 							}}
 							coordinates={{
 								coords: this.state.coords,
-								addCoord: this.handleAddCoord
+								addCoord: this.handleAddCoord,
+								delCoord: this.handleDelCoord
 							}}
 						/>
 					</Col>

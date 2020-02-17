@@ -9,6 +9,8 @@ const math = create(all, config);
 
 // Returns latex of polynomial of least squares
 function calcLeastSquares(coords, degree) {
+	if (coords.length <= 0) return null;
+	
 	const A = math.matrix(coords.map(coord => 
 		Array(parseInt(degree) + 1).fill(coord.x)
 						 		   .map((v, i) => math.pow(v, i))
